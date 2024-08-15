@@ -2,7 +2,7 @@ import { React, useState } from "react";
 
 const PostsFilter = ({ setSearchParams }) => {
   const [searchText, setSearchText] = useState("");
-  const [selectedValue, setSectedValue] = useState("");
+  const [selectedValue, setSectedValue] = useState("id");
 
   const handleSearchPost = (e) => {
     e.preventDefault();
@@ -31,9 +31,7 @@ const PostsFilter = ({ setSearchParams }) => {
           onChange={(e) => setSectedValue(e.target.value)}
           value={selectedValue}
         >
-          <option selected value="id">
-            id
-          </option>
+          <option value="id">id</option>
           <option value="name">name</option>
           <option disabled value="age">
             age

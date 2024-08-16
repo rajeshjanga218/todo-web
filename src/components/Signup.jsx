@@ -39,6 +39,7 @@ function Signup() {
           name="firstName"
           value={formData.firstName}
           onChange={handleOnChange}
+          required
           className="border border-gray-500 rounded-md focus:border focus:outline-none
     focus:border-blue-500
     focus:ring-2
@@ -75,6 +76,7 @@ function Signup() {
           focus:border-blue-500
           focus:ring-2
           focus:ring-blue-200"
+          required
         />
       </div>
       <div>
@@ -91,6 +93,7 @@ function Signup() {
           focus:border-blue-500
           focus:ring-2
           focus:ring-blue-200"
+          required
         />
       </div>
       <Link to={"/user/login"}>

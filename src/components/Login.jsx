@@ -10,6 +10,7 @@ function Login() {
     email: "",
     password: "",
   });
+  const [formError, setFormError] = useState({});
 
   const dispatch = useDispatch();
 
@@ -21,8 +22,28 @@ function Login() {
     });
   };
 
+  const validateForm = () => {
+    const errors = {};
+    if (!formData.email.trim()) {
+      errors.email = "please enter email";
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      errors.email = "please enter valid email";
+    }
+
+    if (!formData.password.trim()) {
+      errors.password = "please enter password";
+    }
+
+    return errors;
+  };
+
   const handleFormSubmit = async (e) => {
     e.preventDefault();
+    const validateErrors = validateForm();
+    if (Object.keys(validateErrors).length > 0) {
+      setFormError(validateErrors);
+      return;
+    }
     await dispatch(loginUser(formData));
     navigate("/user/dashboard");
   };
@@ -39,12 +60,15 @@ function Login() {
           name="email"
           value={formData.email}
           onChange={handleOnChange}
-          className="border border-gray-500 rounded-md focus:border focus:outline-none
+          className={`border ${
+            formError.email ? "border-red-500" : "border-gray-500"
+          }  rounded-md focus:border focus:outline-none
           focus:border-blue-500
           focus:ring-2
-          focus:ring-blue-200"
+          focus:ring-blue-200`}
         />
       </div>
+      {formError.email && <p className="text-red-500">{formError.email}</p>}
       <div>
         <label htmlFor="password" className="block">
           password:
@@ -55,11 +79,16 @@ function Login() {
           name="password"
           value={formData.password}
           onChange={handleOnChange}
-          className="border border-gray-500 rounded-md focus:border focus:outline-none
+          className={`border ${
+            formError.password ? "border-red-500" : "border-gray-500"
+          } rounded-md focus:border focus:outline-none
           focus:border-blue-500
           focus:ring-2
-          focus:ring-blue-200"
+          focus:ring-blue-200`}
         />
+        {formError.password && (
+          <p className="text-red-500">{formError.password}</p>
+        )}
       </div>
       <Link to={"/user/signup"}>
         <p>Signup</p>

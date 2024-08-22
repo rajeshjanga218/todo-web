@@ -11,6 +11,12 @@ const whitelistedRoutes = [
   "/posts/:id",
   "/todos",
   "/",
+  "/debo",
+  "/scroll",
+  "/newscroll",
+  "/modalparent",
+  "/materialuidrawer",
+  "/headlesuidrawer",
 ];
 
 function AuthComponent({ children }) {

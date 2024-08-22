@@ -182,7 +182,7 @@ export function loginUser(data) {
         );
       }
       const resData = await response.json();
-      setCookie("token", `Bearer ${resData.token}`, 1);
+      setCookie("token", `${resData.token}`, 1);
       dispatch(loginUserSuccess(resData));
     } catch (error) {
       const errorMessage =

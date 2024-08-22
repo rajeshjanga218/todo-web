@@ -61,6 +61,7 @@ function InfiniteScroll() {
             <li key={user.id} className="py-4">{`${user.id}. ${user.name}`}</li>
           ))}
       </ul>
+      {loading && <p>Loading...</p>}
       {error && <p>No data found : {error}</p>}
     </div>
   );

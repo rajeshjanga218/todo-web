@@ -10,6 +10,12 @@ import AuthComponent from "./components/AuthComponent";
 import UserLayout from "./components/UserLayout";
 import MainLayout from "./components/MainLayout";
 import NoMatch from "./components/Nomatch";
+import Debounce from "./components/Debounce";
+import InfiniteScroll from "./components/InfiniteScroll";
+import NewInfiniteScroll from "./components/NewInfiniteScroll";
+import ModalParent from "./components/ModalParent";
+import MaterialUIDrawer from "./components/MaterialUIDrawer";
+import HeadlessUIDrawer from "./components/HeadlesUIDrawer";
 
 function App() {
   return (
@@ -30,6 +36,12 @@ function App() {
             <Route path="*" element={<NoMatch />} />
           </Route>
           <Route path="*" element={<NoMatch />} />
+          <Route path="/debo" element={<Debounce />} />
+          <Route path="/scroll" element={<InfiniteScroll />} />
+          <Route path="/newscroll" element={<NewInfiniteScroll />} />
+          <Route path="/modalparent" element={<ModalParent />} />
+          <Route path="/materialuidrawer" element={<MaterialUIDrawer />} />
+          <Route path="/headlesuidrawer" element={<HeadlessUIDrawer />} />
         </Routes>
       </AuthComponent>
     </BrowserRouter>

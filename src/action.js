@@ -37,6 +37,8 @@ export const FETCH_POST_REQUEST = "FETCH_POST_REQUEST";
 export const FETCH_POST_SUCCESS = "FETCH_POST_SUCCESS";
 export const FETCH_POST_FAILURE = "FETCH_POST_FAILURE";
 
+export const TOGGLE_DARK_MODE = "TOGGLE_DARK_MODE";
+
 // action creaters
 export function logoutUser() {
   return { type: LOGOUT_USER };
@@ -136,6 +138,10 @@ export function fetchPostFailure(error) {
     type: FETCH_POST_FAILURE,
     payload: error,
   };
+}
+
+export function toggleDarkMode() {
+  return { type: TOGGLE_DARK_MODE };
 }
 
 export function signupUser(userData) {

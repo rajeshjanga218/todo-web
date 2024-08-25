@@ -21,22 +21,6 @@ export const ADD_TODO = "ADD_TODO";
 export const UPDATE_TODO = "ADD_TODO";
 export const DELETE_TOD = "DELETE_TODO";
 
-export const FETCH_POSTS_REQUEST = "FETCH_POSTS_REQUEST";
-export const FETCH_POSTS_SUCCESS = "FETCH_POSTS_SUCCESS";
-export const FETCH_POSTS_FAILURE = "FETCH_POSTS_FAILURE";
-
-export const ADD_POST_REQUEST = "ADD_POST_REQUEST";
-export const ADD_POST_SUCCESS = "ADD_POST_SUCCESS";
-export const ADD_POST_FAILURE = "ADD_POST_FAILURE";
-
-export const DELETE_POST_REQUEST = "DELETE_POST_REQUEST";
-export const DELETE_POST_SUCCESS = "DELETE_POST_SUCCESS";
-export const DELETE_POST_FAILURE = "DELETE_POST_FAILURE";
-
-export const FETCH_POST_REQUEST = "FETCH_POST_REQUEST";
-export const FETCH_POST_SUCCESS = "FETCH_POST_SUCCESS";
-export const FETCH_POST_FAILURE = "FETCH_POST_FAILURE";
-
 export const TOGGLE_DARK_MODE = "TOGGLE_DARK_MODE";
 
 // action creaters
@@ -78,66 +62,6 @@ export function fetchUSersSuccess(data) {
 
 export function fetchUSersFailure(error) {
   return { type: FETCH_USERS_FAILURE, payload: error };
-}
-
-export function fetchPostsRequest() {
-  return { type: FETCH_POSTS_REQUEST };
-}
-
-export function fetchPostsSuccess(data) {
-  return { type: FETCH_POSTS_SUCCESS, payload: data };
-}
-
-export function fetchPostsFailure(error) {
-  return { type: FETCH_POSTS_FAILURE, payload: error };
-}
-
-// add post
-
-export function addPostRequest() {
-  return { type: ADD_POST_REQUEST };
-}
-
-export function addPostSuccess(data) {
-  return { type: ADD_POST_SUCCESS, payload: data };
-}
-
-export function addPostFailure(error) {
-  return { type: ADD_POST_FAILURE, payload: error };
-}
-
-// delete post
-
-export function deletePostRequest() {
-  return { type: DELETE_POST_REQUEST };
-}
-
-export function deletePostSuccess(data) {
-  return { type: DELETE_POST_SUCCESS, payload: data };
-}
-
-export function deletePostFailure(error) {
-  return { type: DELETE_POST_FAILURE, payload: error };
-}
-
-export function fetchPostRequest() {
-  return {
-    type: FETCH_POST_REQUEST,
-  };
-}
-
-export function fetchPostSuccess(data) {
-  return {
-    type: FETCH_POST_SUCCESS,
-    payload: data,
-  };
-}
-
-export function fetchPostFailure(error) {
-  return {
-    type: FETCH_POST_FAILURE,
-    payload: error,
-  };
 }
 
 export function toggleDarkMode() {
@@ -223,22 +147,6 @@ export function fetchUsers() {
       dispatch(fetchUSersSuccess(data));
     } catch (error) {
       dispatch(fetchUSersFailure(error.message));
-    }
-  };
-}
-
-export function fetchPost(id) {
-  return async (dispatch) => {
-    try {
-      dispatch(fetchPostRequest());
-      const response = await fetch(`http://localhost:4000/post/${id}`);
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      const data = await response.json();
-      dispatch(fetchPostSuccess(data));
-    } catch (error) {
-      dispatch(fetchPostFailure(error.message));
     }
   };
 }

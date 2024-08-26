@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useSearchParams } from "react-router-dom";
 
@@ -10,7 +10,7 @@ import {
 
 import { PostsList, AddPost, PostsSearch } from "./components";
 
-function PostsDetailsPage() {
+function PostsDetails() {
   const { loading, posts, error } = useSelector((state) => state.postState);
   const dispatch = useDispatch();
   const [searchParams, setSearchParams] = useSearchParams();
@@ -42,6 +42,8 @@ function PostsDetailsPage() {
     dispatch(fetchPostsData({ searchValue, sortValue }));
   }, [dispatch, searchParams]);
 
+  const [count, setCount] = useState(0);
+
   if (error) return <p>Error: {error}</p>;
   if (loading) return <p>loading...</p>;
 
@@ -51,8 +53,17 @@ function PostsDetailsPage() {
       <PostsSearch setSearchParams={setSearchParams} />
       <PostsList posts={posts} />
       <AddPost />
+      <button
+        type="button"
+        onClick={() => {
+          setCount((prev) => prev + 1);
+        }}
+      >
+        increase
+      </button>
+      <p>{count}</p>
     </div>
   );
 }
 
-export default PostsDetailsPage;
+export default PostsDetails;

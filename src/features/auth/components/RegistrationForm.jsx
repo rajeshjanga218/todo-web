@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { signupUser } from "../action";
+import { signupUser } from "../authActions";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
-function Signup() {
+function RegistrationForm() {
   const { error, loading, user } = useSelector((state) => state.userState);
   const [formData, setFormData] = useState({
     firstName: "",
@@ -110,4 +110,4 @@ function Signup() {
   );
 }
 
-export default Signup;
+export default RegistrationForm;

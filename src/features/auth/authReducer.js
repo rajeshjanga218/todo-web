@@ -9,7 +9,7 @@ import {
   SIGNUP_USER_FAILURE,
   SIGNUP_USER_REQUEST,
   SIGNUP_USER_SUCCESS,
-} from "./action";
+} from "../../constants/actionTypes";
 
 const initialState = {
   user: null,

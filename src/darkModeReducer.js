@@ -1,4 +1,4 @@
-import { TOGGLE_DARK_MODE } from "./action";
+import { TOGGLE_DARK_MODE } from "./constants/actionTypes";
 
 const initialState = {
   isDarkMode: false,

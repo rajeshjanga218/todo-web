@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { loginUser } from "../action";
+import { loginUser } from "../authActions";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 
-function Login() {
+function LoginForm() {
   const { error, loading } = useSelector((state) => state.userState);
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -45,7 +45,7 @@ function Login() {
       return;
     }
     await dispatch(loginUser(formData));
-    navigate("/user/dashboard");
+    navigate("/user/user-profile");
   };
 
   return (
@@ -102,4 +102,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default LoginForm;

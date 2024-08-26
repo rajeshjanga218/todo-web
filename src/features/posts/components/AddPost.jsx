@@ -3,6 +3,7 @@ import { addPostFailure, addPostRequest, addPostSuccess } from "../postActions";
 import { useDispatch } from "react-redux";
 
 const AddPost = () => {
+  console.log("addpost component");
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 

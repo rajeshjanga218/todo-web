@@ -1,5 +1,5 @@
-import PostsDetailsPage from "./PostsDetailsPage";
-import PostDetailsPage from "./PostDetailsPage";
+import PostsDetails from "./PostsDetails";
 import postReducer from "./postReducer";
+import PostDetails from "./PostDetails";
 
-export { PostsDetailsPage, PostDetailsPage, postReducer };
+export { PostsDetails, PostDetails, postReducer };

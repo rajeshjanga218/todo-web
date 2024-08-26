@@ -1,6 +1,17 @@
 import Home from "./Home";
-import NotFound from "./NotFoundPage";
-import PostDetailsPage from "./PostDetailsPage";
+import NotFoundPage from "./NotFoundPage";
 import PostsDetailsPage from "./PostsDetailsPage";
+import PostDetailsPage from "./PostDetailsPage";
+import UserProfilePage from "./UserProfilePage";
+import RegistrationPage from "./Registrationpage";
+import LoginPage from "./Loginpage";
 
-export { Home, NotFound, PostsDetailsPage, PostDetailsPage };
+export {
+  Home,
+  NotFoundPage,
+  PostDetailsPage,
+  PostsDetailsPage,
+  UserProfilePage,
+  RegistrationPage,
+  LoginPage,
+};

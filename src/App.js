@@ -1,10 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import TodoList from "./components/TodoList";
-import Home from "./components/Home";
-import Login from "./components/Login";
-import Signup from "./components/Signup";
-import Dashboard from "./components/Dashboard";
-import AuthComponent from "./components/AuthComponent";
 import UserLayout from "./components/UserLayout";
 import MainLayout from "./components/MainLayout";
 import Debounce from "./components/Debounce";
@@ -14,27 +9,36 @@ import ModalParent from "./components/ModalParent";
 import MaterialUIDrawer from "./components/MaterialUIDrawer";
 import HeadlessUIDrawer from "./components/HeadlesUIDrawer";
 import Test from "./components/Test";
-import { NotFound, PostDetailsPage, PostsDetailsPage } from "./pages";
+import {
+  NotFoundPage,
+  PostDetailsPage,
+  PostsDetailsPage,
+  Home,
+  UserProfilePage,
+  RegistrationPage,
+  LoginPage,
+} from "./pages";
+import { Auth } from "./features/auth/components";
 
 function App() {
   return (
     <BrowserRouter>
-      <AuthComponent>
+      <Auth>
         <Routes>
           <Route path="/" element={<MainLayout />}>
             <Route index element={<Home />} />
             <Route path="posts" element={<PostsDetailsPage />} />
-            <Route path="posts/:id" element={<PostDetailsPage />} />
+            <Route path="post/:id" element={<PostDetailsPage />} />
             <Route path="todos" element={<TodoList />} />
-            <Route path="*" element={<NotFound />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Route>
           <Route path="/user" element={<UserLayout />}>
-            <Route path="login" element={<Login />} />
-            <Route path="signup" element={<Signup />} />
-            <Route path="dashboard" element={<Dashboard />} />
-            <Route path="*" element={<NotFound />} />
+            <Route path="login" element={<LoginPage />} />
+            <Route path="registration" element={<RegistrationPage />} />
+            <Route path="user-profile" element={<UserProfilePage />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Route>
-          <Route path="*" element={<NotFound />} />
+          <Route path="*" element={<NotFoundPage />} />
           <Route path="/debo" element={<Debounce />} />
           <Route path="/scroll" element={<InfiniteScroll />} />
           <Route path="/newscroll" element={<NewInfiniteScroll />} />
@@ -43,7 +47,7 @@ function App() {
           <Route path="/headlesuidrawer" element={<HeadlessUIDrawer />} />
           <Route path="/test" element={<Test />} />
         </Routes>
-      </AuthComponent>
+      </Auth>
     </BrowserRouter>
   );
 }

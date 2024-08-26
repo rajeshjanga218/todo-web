@@ -11,7 +11,7 @@ import {
   FETCH_POSTS_FAILURE,
   FETCH_POSTS_REQUEST,
   FETCH_POSTS_SUCCESS,
-} from "./postActionTypes";
+} from "../../constants/actionTypes";
 
 // fetch posts
 export function fetchPostsRequest() {

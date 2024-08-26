@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchUsers, logoutUser } from "../action";
+import { fetchUsers, logoutUser } from "../auth/authActions";
 import { useNavigate } from "react-router-dom";
-import { deleteCookie } from "../utils";
+import { deleteCookie } from "../../utils";
 
-function Dashboard() {
+export default function UserProfilePage() {
   const { user, users, error, loading } = useSelector(
     (state) => state.userState
   );
@@ -23,7 +23,7 @@ function Dashboard() {
 
   return (
     <div>
-      {user && <p>Dashboard {user.firstName}</p>}
+      {user && <p>user profile {user.firstName}</p>}
       <button
         type="button"
         onClick={handleLogout}
@@ -41,5 +41,3 @@ function Dashboard() {
     </div>
   );
 }
-
-export default Dashboard;

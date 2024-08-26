@@ -1,3 +1,3 @@
-import { PostDetailsPage } from "../features/posts";
+import { PostDetails as PostDetailsPage } from "../features/posts";
 
 export default PostDetailsPage;

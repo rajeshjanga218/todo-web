@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPost } from "./postActions";
 
-const PostDetailsPage = () => {
+const PostDetails = () => {
   const { id } = useParams();
   const { loading, error, post } = useSelector((state) => state.postState);
   const dispatch = useDispatch();
@@ -28,4 +28,4 @@ const PostDetailsPage = () => {
   );
 };
 
-export default PostDetailsPage;
+export default PostDetails;

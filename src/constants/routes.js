@@ -1,0 +1,15 @@
+export const whitelistedRoutes = [
+  "/user/login",
+  "/user/signup",
+  "/posts",
+  "/post",
+  "/todos",
+  "/",
+  "/debo",
+  "/scroll",
+  "/newscroll",
+  "/modalparent",
+  "/materialuidrawer",
+  "/headlesuidrawer",
+  "/test",
+];

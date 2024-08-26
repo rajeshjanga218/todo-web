@@ -7,7 +7,8 @@ import {
   deletePostSuccess,
 } from "../postActions";
 
-function PostItem({ post, index }) {
+const PostItem = ({ post, index }) => {
+  console.log("post item - component");
   const dispatch = useDispatch();
   const handleDeletePost = async (postId) => {
     try {
@@ -31,8 +32,8 @@ function PostItem({ post, index }) {
     }
   };
   return (
-    <li key={index} className="flex justify-between pt-2">
-      <Link to={`/posts/${post.id}`}>
+    <li className="flex justify-between pt-2">
+      <Link to={`/post/${post.id}`}>
         <p>{`${index + 1}. ${post.title}`}</p>
       </Link>
       <button
@@ -44,6 +45,6 @@ function PostItem({ post, index }) {
       </button>
     </li>
   );
-}
+};
 
 export default PostItem;

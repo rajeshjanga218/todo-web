@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useSearchParams } from "react-router-dom";
 
@@ -44,13 +44,20 @@ function PostsDetails() {
 
   const [count, setCount] = useState(0);
 
+  const handleSearchParams = useCallback(
+    (params) => {
+      setSearchParams(params);
+    },
+    [setSearchParams]
+  );
+
   if (error) return <p>Error: {error}</p>;
   if (loading) return <p>loading...</p>;
 
   return (
     <div className="bg-green-400 h-screen">
       <h1 className="text-center text-4xl">Posts List</h1>
-      <PostsSearch setSearchParams={setSearchParams} />
+      <PostsSearch handleSearchParams={handleSearchParams} />
       <PostsList posts={posts} />
       <AddPost />
       <button

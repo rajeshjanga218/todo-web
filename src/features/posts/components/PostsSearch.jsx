@@ -1,13 +1,14 @@
-import { React, useState } from "react";
+import React, { useState } from "react";
 
-const PostsSearch = ({ setSearchParams }) => {
+const PostsSearch = React.memo(({ handleSearchParams }) => {
+  console.log("post search");
   const [searchText, setSearchText] = useState("");
   const [selectedValue, setSectedValue] = useState("id");
 
   const handleSearchPost = (e) => {
     e.preventDefault();
 
-    setSearchParams({
+    handleSearchParams({
       query: encodeURIComponent(searchText.trim()),
       sort: selectedValue,
     });
@@ -46,6 +47,5 @@ const PostsSearch = ({ setSearchParams }) => {
       </form>
     </>
   );
-};
-
+});
 export default PostsSearch;

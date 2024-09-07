@@ -1,7 +1,9 @@
 import React from "react";
 import { PostItem } from ".";
 
-function PostsList({ posts }) {
+const PostsList = React.memo(({ posts }) => {
+  console.log("postslist");
+
   return (
     <div className="bg-white h-[80%] flex flex-col gap-2 items-center py-4 ">
       <ul className="border border-gray-950 h-full w-1/3 p-2 px-4 overflow-y-auto custom-scrollbar">
@@ -15,6 +17,6 @@ function PostsList({ posts }) {
       </ul>
     </div>
   );
-}
+});
 
 export default PostsList;

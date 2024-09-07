@@ -1,8 +1,8 @@
-import { React, useState } from "react";
+import React, { useState } from "react";
 import { addPostFailure, addPostRequest, addPostSuccess } from "../postActions";
 import { useDispatch } from "react-redux";
 
-const AddPost = () => {
+const AddPost = React.memo(() => {
   console.log("addpost component");
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
@@ -63,6 +63,6 @@ const AddPost = () => {
       </form>
     </>
   );
-};
+});
 
 export default AddPost;

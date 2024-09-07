@@ -7,9 +7,10 @@ import {
   deletePostSuccess,
 } from "../postActions";
 
-const PostItem = ({ post, index }) => {
-  console.log("post item - component");
+const PostItem = React.memo(({ post, index }) => {
+  // console.log("post item - component");
   const dispatch = useDispatch();
+
   const handleDeletePost = async (postId) => {
     try {
       dispatch(deletePostRequest());
@@ -25,7 +26,7 @@ const PostItem = ({ post, index }) => {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
       const data = await response.json();
-      console.log(data);
+
       dispatch(deletePostSuccess(data));
     } catch (error) {
       dispatch(deletePostFailure(error.message));
@@ -45,6 +46,6 @@ const PostItem = ({ post, index }) => {
       </button>
     </li>
   );
-};
+});
 
 export default PostItem;
